@@ -1,9 +1,9 @@
 import sys
 
-# FILE = True 
-# if FILE:
-#     sys.stdin = open('input.txt', 'r')
-#     # sys.stdout = open('output.txt', 'w')
+FILE = True 
+if FILE:
+    sys.stdin = open('input.txt', 'r')
+    # sys.stdout = open('output.txt', 'w')
 
 
 def max_val(array):
@@ -43,7 +43,8 @@ d = int(d)
 nums = list(map(int, [a, b, c, d]))
 
 if all(n == 0 for n in nums):
-    system.stdout.write("0\nup")
+    sys.stdout.write("0\nup\n")
+    exit(0)
 
 arrays = [
         [a,b,c,d],   # up
@@ -57,6 +58,7 @@ candidates["up"] = int(max_val(arrays[0]))
 candidates["left"] = int(max_val(arrays[1]))
 candidates["right"] = int(max_val(arrays[2]))
 candidates["down"] = int(max_val(arrays[3]))
+# print(candidates)
 
 direction = ""
 greatest = 0
@@ -65,4 +67,5 @@ for key, value in candidates.items():
         direction = key
         greatest = value
 
-sys.stdout.write(str(greatest) + "\n" + direction + "\n")
+sys.stdout.write(str(greatest) + "\n")
+sys.stdout.write(direction + "\n")
